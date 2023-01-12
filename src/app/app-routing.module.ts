@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
-  {path: '/perfil', component: ProfileComponent}
+  {path: 'search', component: SearchComponent},
+  {path: 'perfil', component: ProfileComponent},
+  {path: '', redirectTo: '/search', pathMatch: 'full'}
 ];
 
 @NgModule({
