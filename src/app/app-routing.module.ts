@@ -4,9 +4,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/search', pathMatch: 'full'},
   {path: 'search', component: SearchComponent},
   {path: 'perfil', component: ProfileComponent},
-  {path: '', redirectTo: '/search', pathMatch: 'full'}
 ];
 
 @NgModule({
