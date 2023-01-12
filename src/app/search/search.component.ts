@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,9 +12,9 @@ import { Router } from '@angular/router';
 export class SearchComponent {
   constructor(private router: Router) { }
 
-  user: string = '';
+  userInput: string = 'asd'
 
   submitForm() {
-    this.router.navigate(['/perfil'], { queryParams: { user: this.user } });
+    this.router.navigate(['/perfil'], { queryParams: {user:this.userInput}});
   }
 }

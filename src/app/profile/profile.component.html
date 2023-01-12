@@ -1,1 +1,6 @@
-<p>profile works! {{user}}</p>
+<p>profile works!</p>
+<h1>{{user}}</h1>
+
+<div *ngFor="let item of repoData">
+  <li>{{item.full_name}}</li>
+</div>

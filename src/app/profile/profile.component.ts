@@ -7,10 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 
+
 export class ProfileComponent {
   user: string|null;
+  repoData: any;
 
   constructor(private route: ActivatedRoute) {
-    this.user = this.route.snapshot.paramMap.get('user');
+    this.user = this.route.snapshot.queryParamMap.get('user')
+
+
   }
 }
