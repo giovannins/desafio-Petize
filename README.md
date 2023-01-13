@@ -1,27 +1,29 @@
-# TesteDesafio
+# Github Explorer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.0.
+Este é um aplicativo Angular que utiliza a API pública do Github para exibir informações de usuários e repositórios.
+Instalação do projeto
 
-## Development server
+1. Certifique-se de ter a versão mais recente do Node.js e do npm (gerenciador de pacotes) instalados em sua máquina.
+2. Clone este repositório em sua máquina local.
+3. Execute o comando `npm install` para instalar todas as dependências do projeto.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Rodando o ambiente de desenvolvimento
 
-## Code scaffolding
+1. Execute o comando `ng serve` para iniciar o servidor de desenvolvimento.
+2. Acesse http://localhost:4200/ no seu navegador para visualizar o aplicativo.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Build para deploy
 
-## Build
+1. Execute o comando `ng build --prod` para criar uma build de produção do aplicativo.
+2. Os arquivos gerados serão armazenados na pasta `dist/`.
+3. Copie esses arquivos para o servidor de produção e inicie o servidor.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Motivação de escolha da lib TailwindCSS
 
-## Running unit tests
+Optei por utilizar o TailwindCSS como biblioteca de estilos do projeto devido a sua flexibilidade e facilidade de uso. Ele fornece uma série de classes pré-definidas que podem ser usadas para construir layouts e componentes de forma rápida e consistente. Além disso, o TailwindCSS é altamente personalizável, permitindo que você ajuste facilmente as configurações de acordo com as necessidades do seu projeto.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+### Observação
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Certifique-se de que as configurações de proxy estão corretas caso você use o proxy para acessar a API do Github. Algumas configurações adicionais podem ser necessárias para o funcionamento correto do aplicativo.
