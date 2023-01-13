@@ -1,6 +1,109 @@
-<p>profile works!</p>
-<h1>{{user}}</h1>
+<!-- Loadin -->
+<div *ngIf="isLoading" class="flex flex-col justify-center items-center h-screen">
+  <app-spinner></app-spinner>
+</div>
 
-<div *ngFor="let item of repoData">
-  <li>{{item.full_name}}</li>
+<!-- Concluido o Fetch -->
+<div *ngIf="!isLoading">
+  <div class="flex flex-row">
+    <div class="flex flex-col w-2/6 h-screen items-center justify-center">
+
+      <!-- Imagem e informações do user -->
+      <div class="flex flex-row items-center">
+        <img class="h-12 w-12 rounded-full" src="{{userData.avatar_url}}" alt="perfil image">
+        <div class="flex flex-col px-2">
+          <p class="font-bold text-xl">{{userData.name}}</p>
+          <p class="font-light text-sm">@{{userData.login}}</p>
+        </div>
+      </div>
+
+      <!-- Descrição/Bio do User -->
+      <div class="py-4">
+        <p class="font-light">{{userData.bio}}</p>
+      </div>
+
+      <!-- Seguidores e Seguindo -->
+      <div>
+        <p class="py-1"><i class="bi bi-people"></i> {{userData.followers}} seguidores</p>
+        <p class="py-1"><i class="bi bi-heart"></i> {{userData.following}} seguindo</p>
+      </div>
+
+      <!-- Social / Adicional -->
+
+      <!-- company -->
+
+      <div class="flex flex-col justify-start">
+        <div class="py-1" *ngIf="userData.company">
+          <p><i class="bi bi-building"></i> {{userData.company}}</p>
+        </div>
+
+        <!-- blog -->
+        <div class="py-1" *ngIf="userData.blog">
+          <p><i class="bi bi-newspaper"></i><a href="{{userData.blog}}"> {{userData.blog}}</a></p>
+        </div>
+
+        <!-- location -->
+        <div class="py-1" *ngIf="userData.location">
+          <p><i class="bi bi-geo-alt"></i> {{userData.location}}</p>
+        </div>
+
+        <!-- email -->
+        <div class="py-1" *ngIf="userData.email">
+          <p><i class="bi bi-envelope-at"></i> <a href="mailto:{{userData.email}}">{{userData.email}}</a></p>
+        </div>
+
+        <!-- hireable -->
+        <div class="py-1" *ngIf="userData.hireable">
+          <p><i class="bi bi-clipboard-check"></i> {{userData.hireable}}</p>
+        </div>
+
+        <!-- twitter -->
+        <div class="py-1" *ngIf="userData.twitter_username">
+          <p><i class="bi bi-twitter"></i> {{userData.twitter_username}}</p>
+        </div>
+
+        <div class="mt-10">
+          <a class="border rounded bg-purple-700 py-2 px-16 text-white hover:bg-purple-600 transition-all"
+            href="{{userData.html_url}}">Contato</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flex flex-col w-4/6 mt-36 mx-4">
+    <div class="overflow-y-auto border border-solid p-4" style="height: 24rem;">
+        <div *ngFor="let item of repoData">
+
+          <div class="border my-4 p-4 mx-4 rounded">
+            <!-- Link para a Repo -->
+            <a class="font-bold text-xl hover:text-purple-400 hover:underline" href="{{item.html_url}}" target="_blank"
+              rel="noopener noreferrer">{{item.name}}</a>
+
+            <!-- Descrição da Repo -->
+            <div class="my-5">
+              <p class="text-justify text-gray-600">
+                {{item.description}}
+              </p>
+            </div>
+
+            <!-- Contador de estrelas -->
+            <div class="flex flex-row">
+              <p class="">
+                <i class="bi bi-star"></i>
+                {{item.stargazers_count}}
+              </p>
+              <!-- Ultima vez atualizado -->
+              <p class="mx-2">
+                Atualizado há
+                {{atualizarTempo(item.updated_at)}} dias
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
